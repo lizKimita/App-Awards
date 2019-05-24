@@ -31,12 +31,11 @@ class Profile(models.Model):
 
 class Projects(models.Model):
     title = models.CharField(max_length = 30)
-    project_post = HTMLField()
     project_image = models.ImageField(upload_to = 'images/')
     description = models.TextField(blank= True)
     profile = models.ForeignKey(User, on_delete = models.CASCADE, null=True)
     url = models.URLField(blank=True)
-    date = models.DateTimeField(auto_now_add=True)
+    date = models.DateField(auto_now_add=True)
     poster_id = models.IntegerField(default=0)
 
 
@@ -47,7 +46,7 @@ class Projects(models.Model):
         Projects.objects.filter().delete()
     
     @classmethod
-    def get_all(cls):
+    def get_projects(cls):
         projects = Projects.objects.all()
         return projects
 

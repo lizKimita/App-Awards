@@ -5,6 +5,7 @@ from django.conf.urls.static import static
 
 urlpatterns=[
     url(r'^$',views.home,name='home'),
+    url(r'^new/post$', views.new_post, name='new-post')
 
 ]
 

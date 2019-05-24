@@ -4,18 +4,37 @@
     {{block.super}}
    
     <div class="container">
-            <div class="row">
-                    {% for project in projects%}
-                    <div class="col-md-4" style="padding:.4%">
-                      <img src="{{project.project_image.url}}" class="img-responsive" alt="Image" style=" width:400px;height:200px;padding:0;"alt="">
+        <div class="row">
+            <div class="col-md-12" style="padding-top:100px">
+            {% for project in projects%}
+            
+                <div class="col-md-4" style="padding:1%">
+                    <div class="card">
+                    <img src="{{project.project_image.url}}" class="img-responsive" alt="Image" style=" width:700px;height:300px;padding:0;"alt="">
+                    <div style="margin:2%">
+                        <br>
+                        <p> <strong>{{project.title}} </strong></p>
+                        <!-- <p>{{project.description}}</p> -->
+                        <hr>
+                        <p style="float:right">{{project.date}}</p>
+                            <p>By: {{project.profile}}</p>
+                            <a class="btn btn-lg" href="{{project.url}}" target="_blank">view project</a>
+            
                     </div>
-                    {% empty %}
-                    <div class="row">
-                      <h2 class="text-center">There is no Project yet!</h2>
-                    </div>
-                    {% endfor %}
-                  
                 </div>
+            </div>
+                <div class="row">
+                    {% autoescape on %}
+                    {{project.post| safe}}
+                    {% endautoescape %}
+                </div>
+                {% empty %}
+                <div class="row">
+                    <h2 class="text-center">There is no Project yet!</h2>
+                </div>
+            {% endfor %}
+            </div>   
+        </div>
 
     </div>
 
