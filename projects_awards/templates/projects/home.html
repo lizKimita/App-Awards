@@ -4,7 +4,18 @@
     {{block.super}}
    
     <div class="container">
-        
+            <div class="row">
+                    {% for project in projects%}
+                    <div class="col-md-4" style="padding:.4%">
+                      <img src="{{project.project_image.url}}" class="img-responsive" alt="Image" style=" width:400px;height:200px;padding:0;"alt="">
+                    </div>
+                    {% empty %}
+                    <div class="row">
+                      <h2 class="text-center">There is no Project yet!</h2>
+                    </div>
+                    {% endfor %}
+                  
+                </div>
 
     </div>
 
