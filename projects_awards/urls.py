@@ -10,6 +10,7 @@ urlpatterns=[
     url(r'^new_profile/$',views.new_profile,name = 'new_profile'),
     url(r'^edit_profile/$',views.edit_profile,name = 'edit_profile'),
 
+
 ]
 
 if settings.DEBUG:

@@ -6,7 +6,7 @@
             <a class="nav-link" href=""><img src="" alt="" style="width:30px;height:30px;"></i> <span class="sr-only">(current)</span></a>
           </li>
         </ul>
-      <a class="navbar-brand" style="color:black" href="">Apps Awards</a>
+      <a class="navbar-brand" style="color:black" href="/">Apps Awards</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -55,11 +55,11 @@
               <li>
                 <a style="font-size:15px;" class='btn' href="/accounts/login">REGISTER/LOGIN</a>
               </li>
-              <li>
-                <a style="font-size:15px;" class='btn btn-default' href="">SUBMIT YOUR SITE</a>
-              </li>
+
               {% endif %}
-            
+              <li>
+                <a style="font-size:15px;" class='btn btn-default' href="{%url 'new-post'%}">SUBMIT YOUR PROJECT</a>
+            </li>
             
         </ul>
       </div>
