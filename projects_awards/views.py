@@ -30,5 +30,42 @@ def new_post(request):
         form = NewProjectForm()
     return render(request, 'new_post.html', {"form": form})
 
+def new_profile(request):
+    current_user = request.user
+    if request.method == 'POST':
+        form = NewProfileForm(request.POST, request.FILES)
+        if form.is_valid():
+            profile = form.save(commit=False)
+            profile.user = current_user
+            profile.userId = request.user.id
+            profile.save()
+        return redirect('NewProfile')
+    else:
+        form = NewProfileForm()
+    return render(request, 'new_profile.html', {"form": form})
+
+def edit_profile(request):
+    current_user = request.user
+    if request.method == 'POST':
+        user = Profile.objects.get(user=request.user)
+        form = NewProfileForm(request.POST, request.FILES, instance=user)
+        if form.is_valid():
+            form.save()
+        return redirect('NewProfile')
+    else:
+        form = NewProfileForm()
+    return render(request,'edit_profile.html',{'form':form})
+
+def profile(request):
+    current_user = request.user
+    projects = Projects.objects.filter(profile = current_user)
+
+    try:
+        profile = Profile.objects.get(user=current_user)
+    except ObjectDoesNotExist:
+        return redirect('new_profile')
+
+    return render(request,'profile.html',{ 'profile':profile,'projects':projects,'current_user':current_user})
+
 
 
