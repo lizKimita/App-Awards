@@ -1,0 +1,8 @@
+.footerlist li{
+    display: inline-block;
+    font-weight: 600;
+    padding: 10px;
+}
+.page-footer{
+    padding-top: 5%;
+}
