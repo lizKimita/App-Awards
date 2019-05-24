@@ -5,4 +5,4 @@ def home(request):
     return render(request,'projects/home.html')
 
 
-# Create your views here.
+
