@@ -30,8 +30,10 @@ class Projects(models.Model):
     title = models.CharField(max_length = 30)
     project_image = models.ImageField(upload_to = 'images/')
     description = models. TextField(blank= True)
-    projects = models.ForeignKey(User, on_delete = models.CASCADE, null=True)
+    profile = models.ForeignKey(User, on_delete = models.CASCADE, null=True)
     url = models.URLField(blank=True)
+    date = models.DateTimeField(auto_now_add=True)
+    poster_id = models.IntegerField(default=0)
 
 
     def save_project(self):
