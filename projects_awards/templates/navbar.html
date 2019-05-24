@@ -13,14 +13,11 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <form class="navbar-form" role="search" action="">
               <div class="input-group">
-                  <input type="text" class="form-control" placeholder="Search Users" name="profile">
-                  <div class="input-group-btn">
-                      
-                  </div>
+                  <input type="text" class="form-control" placeholder="search project" name="profile">
               </div>
               </form>
       </div>
-      <div class="col-sm-6 col-md-6">
+      <div class="col-sm-4 col-md-4">
           
         </div>
        <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -40,11 +37,20 @@
                       <a style="font-size:15px;" href="{%url 'NewProfile'%}">Profile</a>
                     </li>
                     <li>
-                        <a style="font-size:15px;" href="{%url 'new-post'%}">Create New Project Post</a>
-                      </li>
-                    <li>
-                      <a style="font-size:15px;" href="/accounts/password/change">Change Password</a>
+                      <a style="font-size:15px;" href="/">Activity</a>
                     </li>
+                    <li>
+                      <a style="font-size:15px;" href="/">Collections</a>
+                    </li>
+                    <li>
+                      <a style="font-size:15px;" href="/">Notifications</a>
+                    </li>
+                    <li>
+                        <a style="font-size:15px;" href="/">Settings</a>
+                    </li>
+                    <!-- <li>
+                      <a style="font-size:15px;" href="/accounts/password/change">Change Password</a>
+                    </li> -->
                     <li>
                       <a style="font-size:15px;" href="/logout">Logout</a>
                     </li>
@@ -57,8 +63,8 @@
               </li>
 
               {% endif %}
-              <li>
-                <a style="font-size:15px;" class='btn btn-default' href="{%url 'new-post'%}">SUBMIT YOUR PROJECT</a>
+              <li style="padding-left:10%" >
+                <a style="font-size:15px;font-weight: 600" class='btn btn-default' href="{%url 'new-post'%}">SUBMIT YOUR PROJECT</a>
             </li>
             
         </ul>
