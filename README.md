@@ -8,7 +8,18 @@
 
 
 ## BDD Specifications
-
+| User Requirements                  | Input                                                                                                                         | Output                                                                                                         |
+|------------------------------------|-------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------|
+| Sign up/Login                      | To create a new account click the sign up link and fill the form details To login click the login button and fill the details | If login is successful user is navigated to the home page                                                      |
+| To add a newproject                | click the submit project tab on the navbar and submit your new project details.                                               | You will be navigated to a page where you can submit a new project.                                            |
+| To Review a project                | Click on the review project button.                                                                                           | You will be navigated to a page with the project details where you can post your review.                       |
+| To create a profile                | On the navbar click the profile tab and create new profile                                                                    | New profile for the user will be created                                                                       |
+| To edit profile                    | On the profile page click the edit profile button, make the changes and submit                                                | Profile will be edited                                                                                         |
+| To see all of your posted projects | Navigate to the profile page and all the details and project posts will be displayed.                                         | All the user's profile details will be displayed.                                                              |
+| To view Users details              | Navigate to the project whose user you would like to see and click on their name.                                             | You will be redirected to a page with all the users details including their contact information.               |
+| To search for a specific project   | input the project's name in the search bar on the navigation bar                                                              | You will be redirected to the projects with a matching name. click on the project you wish to view details of. |
+| To view other all projects posted. | Navigate to the home page to view them all                                                                                    | All project posts will be displayed                                                                            |
+| To log out                         | click the profile icon and then the logout link                                                                               | You will be logged out                                                                                         |
 
 ## Setup/Installation Requirements
 * Ensure you have Installed Python3.6
