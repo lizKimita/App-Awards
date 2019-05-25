@@ -16,5 +16,12 @@
 .awards{
     font-size: 200%;
     font-family: 'Lobster Two', cursive;
-
+}
+.newdata{
+    font-size: 300%;
+    font-family: 'Lobster Two', cursive;
+    text-align: center;
+    color:cadetblue;
+    text-emphasis: 800;
+    text-decoration: underline
 }
