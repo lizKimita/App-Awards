@@ -10,7 +10,7 @@ class Profile(models.Model):
     user = models.ForeignKey(User,on_delete = models.CASCADE,null = True)
     bio = models.TextField(max_length = 100)
     userId =models.IntegerField(default = 0)
-    email = models.EmailField(default = 0)
+    email = models.EmailField()
 
     def save_profile(self):
         self.save()
