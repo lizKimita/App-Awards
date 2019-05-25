@@ -17,7 +17,7 @@
                         <!-- <p>{{project.description}}</p> -->
                         <hr>
                         <p style="float:right">{{project.date}}</p>
-                            <p>By: {{project.profile}}</p>
+                            <p>By: <a href="{% url 'find_user' project.profile %}">{{project.profile}}</a> </p>
                             <a class="btn btn-lg" href="{{project.url}}" target="_blank">view project</a>
             
                     </div>

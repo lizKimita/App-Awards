@@ -10,7 +10,7 @@ urlpatterns=[
     url(r'^new_profile/$',views.new_profile,name = 'new_profile'),
     url(r'^edit_profile/$',views.edit_profile,name = 'edit_profile'),
     url(r'^search/', views.search_results, name='search_results'),
-
+    url(r'^find_user/(?P<username>\w{0,50})/$', views.find_user, name='find_user'),
 
 ]
 

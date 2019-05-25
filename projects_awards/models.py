@@ -22,6 +22,11 @@ class Profile(models.Model):
         self.save()
 
     @classmethod
+    def find_user(cls, profile_id):
+        profile = cls.objects.get(id=profile_id)
+        return profile
+
+    @classmethod
     def update_profile(cls,profile,update):
          updated = cls.objects.filter(Image_name=profile).update(name=update)
          return updated

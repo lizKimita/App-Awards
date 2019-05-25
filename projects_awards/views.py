@@ -4,6 +4,7 @@ from .forms import NewProfileForm, NewProjectForm
 from .models import Profile, Projects
 from django.contrib.auth.decorators import login_required
 from django.core.exceptions import ObjectDoesNotExist
+from django.contrib.auth.models import User
 
 
 def home(request):
@@ -79,3 +80,11 @@ def search_results(request):
     else:
         message = "You haven't searched for any projects yet!"
         return render (request, 'projects/search.html', {"message": message})
+
+def find_user(request,username):
+    user = User.objects.get(username = username)
+    profile = Profile.objects.get(user_id = user)
+    projects = Projects.objects.filter(profile_id = user)
+
+    return render(request, 'projects/find_user.html', {'profile':profile, "projects":projects})
+

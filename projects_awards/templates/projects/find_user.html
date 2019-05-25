@@ -1,0 +1,32 @@
+{% extends 'projects/base.html' %}
+
+{% block content %}
+<div class="container" >
+    <div class="row" style="margin-top: 15ch;">
+        {% if profile.user %}
+        <div class="col-md-2"></div>
+        <div class="col-md-3">
+          <img src="{{profile.profile_pic.url}}" alt="Image" class="img-responsive profilepic">
+        </div> 
+        <div class="col-md-7">
+          <ul class="profileedit">
+            <li><p class="userprofile">{{profile.user}}</p></li>
+            <li style="padding-left:5%;"><a class="btn btn-lg" href=""><span class="prof">Follow</span> </a></li>
+        </ul>
+          <ul class="profilefollowers">
+            <li>posts</li>
+            <li style="margin-left:20px">followers</li>
+            <li style="margin-left:20px">following</li>
+          </ul>
+          <h4 style="margin-left: 50px"> <strong>{{profile.bio}}</strong> </h4>
+        </div>
+        {% else %}
+        </p>No profile details found</p>
+
+        {% endif %}
+    </div>
+
+ 
+</div>
+
+{% endblock %}
