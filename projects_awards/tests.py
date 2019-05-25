@@ -8,7 +8,7 @@ class ProfileTestClass(TestCase):
     def setUp(self):
         self.liz = Profile(id = 125, profile_pic = "",bio = "I love traveling", userId = 1)
 
-      # Testing instance
+    # Testing instance
     def test_instance(self):
         self.assertTrue(isinstance(self.liz,Profile))
     
@@ -17,7 +17,7 @@ class ProfileTestClass(TestCase):
         self.assertEqual(self.liz.bio, "I love traveling")
         self.assertEqual(self.liz.userId, 1)
 
-        # Testing Save method
+    # Testing Save method
     def test_save(self):
         self.liz.save_profile()
         profiles = Profile.objects.all()
@@ -30,19 +30,19 @@ class ProfileTestClass(TestCase):
         self.assertTrue(len(profiles) == 0)
 
 
-class ImageTestClass(TestCase):
+class ProjectTestClass(TestCase):
 
     # Set up method
     def setUp(self):
         # Profile class test
         self.liz = Profile( bio = "I love traveling", userId = 1)
 
-        # Image class Test
+        # Project class Test
         self.project = Projects(title = "Life", project_image = " ",description="nature goodness",url = "", date = "10/2/2019", poster_id = 2)
         self.project.save_project()
 
 
-    # Testing  instance
+    # Testing instance
     def test_instance(self):
         self.assertTrue(isinstance(self.project,Projects))
 
@@ -59,7 +59,7 @@ class ImageTestClass(TestCase):
         self.assertTrue(len(projects) == 0)
 
 
-    # Testing getting image by id 
+    # Testing getting project by id 
     def test_get_project(self):
         projects = Projects.get_project(self.project.id)
         self.assertTrue(projects == self.project)

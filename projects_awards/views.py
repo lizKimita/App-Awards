@@ -68,4 +68,14 @@ def profile(request):
     return render(request,'profile.html',{ 'profile':profile,'projects':projects,'current_user':current_user})
 
 
+def search_results(request):
+    if 'project' in request.GET and request.GET ["project"]:
+        search_term = request.GET.get("project")
+        searched_projects = Projects.search_by_title(search_term)
+        message = f'{search_term}'
 
+        return render(request, 'projects/search.html', {"message":message, "projects":searched_projects})
+
+    else:
+        message = "You haven't searched for any projects yet!"
+        return render (request, 'projects/search.html', {"message": message})
