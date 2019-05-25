@@ -88,3 +88,23 @@ def find_user(request,username):
 
     return render(request, 'projects/find_user.html', {'profile':profile, "projects":projects})
 
+def review_project(request,id):
+    project = Projects.objects.get(id=id)
+    current_user = request.user
+    # reviews = Review.objects.filter(project=projo)
+
+    # if request.method == 'POST':
+    #     reviewform = ReviewForm(request.POST)
+    #     if reviewform.is_valid():
+    #         project_id =int(request.POST.get('review_id'))
+    #         project = Project.objects.get(id = project_id)
+    #         review = reviewform.save(commit=False)
+    #         review.username = request.user
+    #         review.project = project
+    #         review.save()
+    #     return redirect ('review', projo.id)
+    # else:
+    #     reviewform = ReviewForm()
+
+    # print(reviews)
+    return render(request, 'review_project.html',{'project':project, 'current_user': current_user})
