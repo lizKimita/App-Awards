@@ -95,7 +95,7 @@ def review_project(request,id):
     project = Projects.objects.get(id=id)
     current_user = request.user
 
-    return render(request, 'review_project.html',{'project':project, 'current_user': current_user})
+    return render(request, 'projects/review_project.html',{'project':project, 'current_user': current_user})
 
 
 class ProfList(APIView):

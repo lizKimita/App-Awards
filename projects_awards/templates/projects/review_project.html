@@ -1,0 +1,16 @@
+{% extends 'projects/base.html' %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="jumbotron" style="background-image:url({{project.project_image.url}}); height:70vh; margin-top: 6%">
+        <a class="btn btn-default" href="{{project.url}}" target="_blank" style="float:left"><strong>view live project</strong></a>
+    </div>
+</div> 
+<div class="container">
+    <div class="projectdetails">
+        <p class="ptitle">{{project.title}}</p>
+        <p><strong>By:</strong><a href="{% url 'find_user' project.profile %}">{{project.profile}}</a> </p>
+        <p> <strong>{{project.date}}</strong></p>
+    </div>  
+</div>
+{% endblock %}

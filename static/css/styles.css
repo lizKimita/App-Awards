@@ -25,3 +25,22 @@
     text-emphasis: 800;
     text-decoration: underline
 }
+.jumbotron {
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+.projectdetails {
+    text-align: center;
+}
+.ptitle{
+    font-size: 350%;
+    font-family: 'Lobster Two', cursive;
+    text-align: center;
+    color:cadetblue;
+    text-emphasis: 800;
+    text-decoration: underline
+}
+#btnsearch{
+    border: none;
+}
