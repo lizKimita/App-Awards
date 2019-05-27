@@ -5,6 +5,9 @@ from .models import Profile, Projects
 from django.contrib.auth.decorators import login_required
 from django.core.exceptions import ObjectDoesNotExist
 from django.contrib.auth.models import User
+from rest_framework.response import Response
+from rest_framework.views import APIView
+from .serializer import ProfSerializer, ProjectSerializer
 
 
 def home(request):
@@ -91,20 +94,20 @@ def find_user(request,username):
 def review_project(request,id):
     project = Projects.objects.get(id=id)
     current_user = request.user
-    # reviews = Review.objects.filter(project=projo)
 
-    # if request.method == 'POST':
-    #     reviewform = ReviewForm(request.POST)
-    #     if reviewform.is_valid():
-    #         project_id =int(request.POST.get('review_id'))
-    #         project = Project.objects.get(id = project_id)
-    #         review = reviewform.save(commit=False)
-    #         review.username = request.user
-    #         review.project = project
-    #         review.save()
-    #     return redirect ('review', projo.id)
-    # else:
-    #     reviewform = ReviewForm()
-
-    # print(reviews)
     return render(request, 'review_project.html',{'project':project, 'current_user': current_user})
+
+
+class ProfList(APIView):
+    def get(self,request,format=None):
+        all_profiles = Profile.objects.all()
+        serializers = ProfSerializer(all_profiles,many=True)
+        return Response(serializers.data)
+
+class ProjectList(APIView):
+    def get(self,request,format=None):
+        all_projects = Projects.objects.all()
+        serializers = ProjectSerializer(all_projects,many=True)
+        return Response(serializers.data)
+
+

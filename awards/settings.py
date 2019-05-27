@@ -81,8 +81,10 @@ EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 # Application definition
 
 INSTALLED_APPS = [
-    'projects_awards', 
+    'projects_awards',
+    'rest_framework',
     'bootstrap3',
+    'rest_framework.authtoken',
     'tinymce',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -91,6 +93,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.TokenAuthentication',
+    )
+}
 
 MIDDLEWARE = [
     # Simplified static file serving.
