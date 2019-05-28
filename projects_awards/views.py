@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse, Http404
-from .forms import NewProfileForm, NewProjectForm
-from .models import Profile, Projects
+from .forms import NewProfileForm, NewProjectForm, NewCommentForm
+from .models import Profile, Projects, Comments
 from django.contrib.auth.decorators import login_required
 from django.core.exceptions import ObjectDoesNotExist
 from django.contrib.auth.models import User
@@ -95,7 +95,23 @@ def review_project(request,id):
     project = Projects.objects.get(id=id)
     current_user = request.user
 
-    return render(request, 'projects/review_project.html',{'project':project, 'current_user': current_user})
+    if request.method=='POST':
+        form = NewCommentForm(request.POST)
+        if form.is_valid():
+            comment = comment.save(commit=False)
+            comment.user = request.user
+            comment.project_id = id
+            comment.save()
+            return redirect('review_project',id)
+    else:
+        comment=NewCommentForm()
+
+    try:
+        user_comment=Comments.objects.filter(project_id=id)
+    except Exception as e:
+        raise Http404()
+   
+    return render(request, 'projects/review_project.html',{'project':project, 'current_user': current_user, 'form': form, 'comments':comment })
 
 
 class ProfList(APIView):

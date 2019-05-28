@@ -69,3 +69,8 @@ class Projects(models.Model):
     class Meta:
         ordering = ['-id']
 
+class Comments(models.Model):
+    user=models.ForeignKey(User,on_delete=models.CASCADE)
+    comment=models.TextField(max_length=150)
+    project_id=models.IntegerField(default=0)
+

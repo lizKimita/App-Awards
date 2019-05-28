@@ -1,4 +1,4 @@
-from .models import Projects, Profile
+from .models import Projects, Profile, Comments
 from django import forms
 
 class NewProjectForm(forms.ModelForm):
@@ -10,3 +10,8 @@ class NewProfileForm(forms.ModelForm):
     class Meta:
         model = Profile
         exclude = ['user', 'userId']
+
+class NewCommentForm(forms.ModelForm):
+    class Meta:
+        model = Comments
+        exclude = ['project_id', 'user']
