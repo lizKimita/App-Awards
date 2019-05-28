@@ -92,26 +92,26 @@ def find_user(request,username):
     return render(request, 'projects/find_user.html', {'profile':profile, "projects":projects})
 
 def review_project(request,id):
-    project = Projects.objects.get(id=id)
+    project = Projects.objects.filter(id=id)
     current_user = request.user
 
     if request.method=='POST':
         form = NewCommentForm(request.POST)
         if form.is_valid():
-            comment = comment.save(commit=False)
-            comment.user = request.user
-            comment.project_id = id
-            comment.save()
+            form = form.save(commit=False)
+            form.user = request.user
+            form.project_id = id
+            form.save()
             return redirect('review_project',id)
     else:
-        comment=NewCommentForm()
+        form=NewCommentForm()
 
     try:
         user_comment=Comments.objects.filter(project_id=id)
     except Exception as e:
         raise Http404()
    
-    return render(request, 'projects/review_project.html',{'project':project, 'current_user': current_user, 'form': form, 'comments':comment })
+    return render(request, 'projects/review_project.html',{'project':project, 'current_user': current_user,  'form':form, 'comments':user_comment })
 
 
 class ProfList(APIView):
