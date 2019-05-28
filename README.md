@@ -4,6 +4,8 @@
 
 #### By **Elizabeth Wanjiku Kimita**
 
+<img src="static/images/appawards.png" height=350>
+
 ## Description
 This is an application that allows users to showcase their projects. Other users can view all the projects posted, vote on them based on the design, usability and the content. Users are also able to view each others profile details and even search for specific projects.
 
